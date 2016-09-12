@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h3>Labels</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @labels.each do |label| %>
+            <tr>
+              <td><%= print_self(label) %></td>
+              <td><%= link_to 'Edit', edit_label_path(label) %></td>
+              <td><%= link_to 'Destroy', label, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= link_to 'New Label', new_label_path , :class => 'btn btn-primary right' %>
+</div>
