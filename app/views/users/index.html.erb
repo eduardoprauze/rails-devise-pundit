@@ -3,12 +3,8 @@
     <h3>Users</h3>
     <div class="column">
       <table class="table">
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
+        <tbody id="user_list">
+          <%= render 'user_list' %>
         </tbody>
       </table>
     </div>

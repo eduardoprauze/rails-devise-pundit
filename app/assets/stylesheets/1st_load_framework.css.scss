@@ -80,3 +80,25 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+.labels_container{
+  display: none;
+  position: absolute;
+}
+.add_label{
+  cursor: pointer;
+  width: 100px;
+}
+.add_label_item{
+  cursor: pointer;
+}
+.add_label_item:hover{
+  background-color: #eee;
+}
+.delete_label{
+  font-size: 9px;
+}
+.label-margin{
+  display: inline-block;
+  margin: 2px;
+  padding: 4px 7px;
+}

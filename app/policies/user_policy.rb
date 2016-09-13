@@ -23,4 +23,12 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def add_label?
+    @current_user.admin?
+  end
+
+  def delete_label?
+    @current_user.admin?
+  end
+
 end
