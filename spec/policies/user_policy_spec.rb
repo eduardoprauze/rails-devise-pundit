@@ -44,4 +44,22 @@ describe UserPolicy do
     end
   end
 
+  permissions :add_label? do
+    it "prevents to add labels if not an admin" do
+      expect(subject).not_to permit(current_user)
+    end
+    it "allows an admin to add labels" do
+      expect(subject).to permit(admin)
+    end
+  end
+
+  permissions :delete_label? do
+    it "prevents to delete labels if not an admin" do
+      expect(subject).not_to permit(current_user)
+    end
+    it "allows an admin to delete labels" do
+      expect(subject).to permit(admin)
+    end
+  end
+
 end

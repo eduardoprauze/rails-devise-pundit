@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :label do
-    name "MyString"
-    colour "MyString"
+    name "Premium User"
+    colour "3"
   end
 
 end
