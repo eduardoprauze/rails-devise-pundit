@@ -2,11 +2,33 @@
   <%= link_to user.email, user %>
 </td>
 <td>
+  <% user.labels.each do |label| %>
+    <span class='label label-<%= label.colour_name.downcase %> label-margin'>
+      <%= label.name %>
+      <a href='#' data-user='<%= user.id %>' data-label='<%= label.id %>' class="delete_label">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </a></span>
+  <% end %>
+</td>
+<td>
   <%= form_for(user) do |f| %>
     <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
     <%= f.submit 'Change Role', :class => 'button-xs' %>
   <% end %>
 </td>
 <td>
+  <p class="add_label btn-xs btn-primary">Add new label</p>
+  <div class="labels_container">
+    <ul class="list-group">
+    <% @labels.each do |label| %>
+      <li data-user='<%= user.id %>' data-label='<%= label.id %>' class="list-group-item add_label_item"><span class='label label-<%= label.colour_name.downcase %>'><%= label.name %></span></li>
+    <% end %>
+    </ul>
+  </div>
+
+</td>
+<td>
   <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
 </td>
+
+<% javascript_include_tag 'user_labels' %>
